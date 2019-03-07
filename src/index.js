@@ -11,10 +11,11 @@ const isDevMode = process.execPath.match(/[\\/]electron/);
 if (isDevMode) enableLiveReload({ strategy: 'react-hmr' });
 
 const createWindow = async () => {
+  const { width, height } = require('electron').screen.getPrimaryDisplay().size
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width,
+    height,
   });
 
   // and load the index.html of the app.
